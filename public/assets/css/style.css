@@ -1,0 +1,30 @@
+header, footer {
+  color: rgb(241, 241, 241);
+  background-color: rgb(0, 125, 209);
+}
+
+header button {
+  position: relative;
+  top: 5px;
+}
+
+header h2 {
+  position: relative;
+  top: 3px;
+}
+
+header a {
+  position: relative;
+  color: rgb(241, 241, 241);
+  margin-right: 25px;
+}
+
+a:hover {
+  color: rgb(241, 241, 241);
+}
+
+footer p {
+  position: relative;
+  top: 6px;
+  margin-left: 25px;
+}
