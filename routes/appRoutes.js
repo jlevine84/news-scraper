@@ -6,6 +6,25 @@ module.exports = (db) =>{
       res.render('index');
   });
 
-  return router
-  
+  router.get('/scrape', (req, res)=>{
+    res.json()
+  })
+
+  router.get('/saved', (req, res)=>{
+
+  })
+
+  router.post('/saved', (req, res)=>{
+    
+  })
+
+  router.get('/comment', (req, res)=>{
+
+  })
+
+  router.post('/comment', (req, res)=>{
+
+  })
+
+  return router  
 }
