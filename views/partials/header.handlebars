@@ -4,8 +4,8 @@
     </div>
 
     <div class="col 6 text-center">
-      <button class="btn btn-success">Scrape New Articles</button>
-      <button class="btn btn-danger">Clear Articles</button>
+      <button class="btn btn-success" id="scrape">Scrape New Articles</button>
+      <button class="btn btn-danger" id="clear">Clear Articles</button>
     </div>
 
     <div class="col 3 text-right">
@@ -16,3 +16,27 @@
       </span>
     </div>
 </header>
+
+<script>
+$(document).ready(function() {
+  $("#scrape").on("click", function(event){
+    event.preventDefault()
+    $.ajax({
+      type: "GET",
+      url: "/scrape"
+    }).then(response => {
+      if(response) console.log("Scrape Complete")
+    })
+  })
+
+  $("#scrape").on("click", function(event){
+    event.preventDefault()
+    $.ajax({
+      type: "DELETE",
+      url: "/scrape"
+    }).then(response => {
+      if(response) console.log("Articles Deleted")
+    })
+  })
+})
+</script>

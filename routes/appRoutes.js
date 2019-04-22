@@ -18,10 +18,20 @@ module.exports = (db) =>{
         results.title = $(element).children("a").children("div").children("h2").text()
         results.link = $(element).children("a").attr("href")
         //TODO: Post Article to DB
+        db.Article.create(results).then(articles => {
+          
+        }).catch(err => {
+          console.log(err)
+        })
       })
       
     })
     res.send("Scrape Complete")
+  })
+
+  router.delete('/scrape', (req, res)=>{
+    db.Article.remove({})
+    res.render('index')
   })
 
   router.get('/saved', (req, res)=>{
