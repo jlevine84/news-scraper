@@ -6,10 +6,6 @@ const CommentSchema = new Schema({
   body: {
     type: String,
     required: true
-  },
-  posterName: {
-    type: String,
-    required: true
   }
 })
 

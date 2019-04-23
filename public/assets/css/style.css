@@ -46,7 +46,7 @@ footer p {
 #logo-view {
   background-image: url(../images/nytbackdrop.jpg);
   background-size: 100% 100%;
-  height: 21vw;
+  height: 15vw;
 }
 
 #logo-view h1{
@@ -59,6 +59,89 @@ footer p {
 }
 
 #article-view {
-  height: 44vh;
+  height: 57vh;
   overflow: auto;
+}
+
+.newsArticle {
+  width: 97vw;
+  height: 100px;
+  margin-top: 10px;
+  box-shadow: 3px 3px 3px rgb(105, 105, 105);
+  border: 1px solid black;
+}
+
+.newsArticle a:hover {
+  color: rgb(0, 125, 209);
+}
+
+.title {
+  background: rgb(0, 125, 209);
+  height: 50%;
+  text-shadow: .5px .5px rgb(49, 49, 49);
+  color: white;
+  padding-left: 25px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.link {
+  background: white;
+  height: 50%;
+  text-shadow: .5px .5px rgb(49, 49, 49);
+  color: rgb(0, 125, 209);
+  padding-left: 25px;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+#saveArticle {
+  position: relative;
+  border: 1px solid rgb(75, 75, 75);
+  bottom: 33px;
+  left: 93%
+}
+
+#removeArticle {
+  position: relative;
+  border: 1px solid rgb(75, 75, 75);
+  bottom: 33px;
+  left: 91%;
+}
+
+#comments {
+  position: relative;
+  border: 1px solid rgb(75, 75, 75);
+  bottom: 33px;
+  left: 76%;
+}
+
+.noArticles {
+  width: 98vw;
+  height: 100px;
+  margin-top: 10px;
+  background: rgb(0, 125, 209);
+  text-shadow: .5px .5px rgb(49, 49, 49);
+  color: white;
+  padding-left: 25px;
+  padding-top: 30px;
+  font-size: 20px;
+}
+
+#newComment {
+  margin-top: 15px;
+  width: 150%;
+  font-size: 18;
+}
+
+.comment {
+  background: rgb(0, 125, 209);
+  color: white;
+  width: 97vw;
+  height: 100px;
+  margin-top: 10px;
+  box-shadow: 3px 3px 3px rgb(105, 105, 105);
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 5px 0px 5px 10px;
 }

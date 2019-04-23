@@ -25,17 +25,27 @@ $(document).ready(function() {
       type: "GET",
       url: "/scrape"
     }).then(response => {
-      if(response) console.log("Scrape Complete")
+      if(response) {
+        console.log("Scrape Complete")
+        setTimeout(function(){ 
+          $(document.location).attr('href', '/')
+        }, 4000);
+        alert("Articles are scraping. Please wait...")
+
+      }
     })
   })
 
-  $("#scrape").on("click", function(event){
+  $("#clear").on("click", function(event){
     event.preventDefault()
     $.ajax({
       type: "DELETE",
       url: "/scrape"
     }).then(response => {
-      if(response) console.log("Articles Deleted")
+      if(response) {
+        console.log("Articles Deleted")
+        $(document.location).attr('href', '/')
+      }
     })
   })
 })

@@ -1,0 +1,54 @@
+{{> header}}
+<main>
+  <div class="row no-gutters" id="logo-view">
+    <div class="container text-center">
+      <h1><strong>New York Times Mongo Scraper</strong></h1>
+    </div>
+  </div>
+
+  <div class="row no-gutters" id="commentsView">
+      <div class="row no-gutters">
+        <div class="col">
+          <div class="container">
+              {{#if article.comments}}
+                {{#each article.comments}}
+                  <div class="comment" data-id="{{id}}">
+                    {{body}}
+                  </div>
+                {{/each}}
+              {{else}}
+                <div class="noArticles">No Comments for Article Id: {{article.id}}. Add your comment below!</div>
+              {{/if}}
+              <form>
+                <div class="form-group">
+                  <textarea class="form-control" id="newComment" placeholder="Add your comment!" rows="3"></textarea>
+                  <button class="btn btn-success" id="newCommentButton" data-id="{{article.id}}">Add Comment</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
+{{> footer}}
+<script>
+  $(document).ready(function() {
+    $("#newCommentButton").on("click", function(event){
+      event.preventDefault()
+      const newComment = $("#newComment").val().trim()
+      $("#newComment").val("")
+      const id = $(this).data("id")
+      $(`#${id}`).hide()
+      $.ajax({
+        type: "POST",
+        url: `/comment/${id}`,
+        data: {
+          body: newComment
+        }
+      }).then(response => {
+        if(response) console.log(response)
+      })
+
+    })
+  })
+</script>

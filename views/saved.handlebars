@@ -15,7 +15,8 @@
                 <div class="newsArticle" id="{{id}}">
                   <div class="title"> {{title}}
                     <div>
-                      <button id="saveArticle" data-id="{{id}}" class="btn btn-secondary">Save Article</button>
+                      <button id="removeArticle" data-id="{{id}}" class="btn btn-secondary">Un-Save Article</button>
+                      <button type="button" data-toggle="modal" data-target="#myModal" id="comments" data-id="{{id}}" class="btn btn-warning">Comments</button>
                     </div>
                   </div>
                   <div class="link"><a href="https://www.nytimes.com{{link}}">Link to Article</a></div>
@@ -23,7 +24,7 @@
               {{/each}}
             {{else}}
               <div class="noArticles">
-                There are currently no Articles to display. Use the Scrape button above!
+                There are currently no saved Articles to display. Use the Scrape button above and save an Article!
               </div>
             {{/if}}
           </div>
@@ -32,10 +33,11 @@
       </div>
   </div>
 </main>
+
 {{> footer}}
 <script>
   $(document).ready(function() {
-    $("#saveArticle").on("click", function(event){
+    $("#removeArticle").on("click", function(event){
       event.preventDefault()
       const id = $(this).data("id")
       $(`#${id}`).hide()
@@ -43,12 +45,24 @@
         type: "PUT",
         url: `/saved/${id}`,
         data: {
-          saved: true
+          saved: false
         }
       }).then(response => {
         if(response) console.log(response)
       })
 
+    })
+
+    $("#comments").on("click", function(event){
+      event.preventDefault()
+      const id = $(this).data("id")
+      $(`#${id}`).hide()
+      $.ajax({
+        type: "GET",
+        url: `/comment/${id}`
+      }).then(response => {
+        if (response) $(document.location).attr('href', `/comment/${id}`)
+      })
     })
   })
 </script>
